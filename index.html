@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Provador de Fórmulas Proposicionais</title>
+
+<!-- CSS separado, igual pediram -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <h1>Provador de Fórmulas Proposicionais</h1>
+  <p class="subtitulo">Versão web do provador original em Java — mesma lógica, agora em JavaScript</p>
+
+  <!-- ===================== CARD DE ENTRADA ===================== -->
+  <div class="card">
+    <div class="operadores">
+      <span><b>~</b> Negação</span>
+      <span><b>^</b> Conjunção</span>
+      <span><b>v</b> Disjunção</span>
+      <span><b>-&gt;</b> Condicional</span>
+      <span><b>&lt;-&gt;</b> Bicondicional</span>
+    </div>
+
+    <div class="campo-formula">
+      <input type="text" id="formulaInput" placeholder="Ex: (P ^ Q) -> R" autocomplete="off">
+      <button id="btnCalcular">Calcular</button>
+    </div>
+
+    <!-- Botões de atalho só para facilitar a digitação no celular -->
+    <div class="botoes-inserir">
+      <button data-inserir="~">~</button>
+      <button data-inserir="^">^</button>
+      <button data-inserir="v">v</button>
+      <button data-inserir="->">-&gt;</button>
+      <button data-inserir="<->">&lt;-&gt;</button>
+      <button data-inserir="(">(</button>
+      <button data-inserir=")">)</button>
+      <button id="btnLimpar">Limpar</button>
+    </div>
+
+    <div id="areaErro"></div>
+  </div>
+
+  <!-- ===================== CARD DE RESULTADO ===================== -->
+  <div class="card" id="areaResultado" style="display:none;">
+    <div class="resultado-formula" id="formulaFormatada"></div>
+    <div id="areaTabela"></div>
+    <div id="areaClassificacao"></div>
+  </div>
+
+  <footer>Feito convertendo AnalisadorLexico.java, Parser.java, Formula.java e TabelaVerdade.java para JavaScript.</footer>
+</div>
+
+<!-- ==========================================================
+     IMPORTAÇÃO DOS MÓDULOS JS
+
+     type="module" permite usar import/export entre os arquivos,
+     igual cada .java era um arquivo separado que se enxergava.
+
+     A ORDEM AQUI NÃO IMPORTA porque quem decide a ordem de uso
+     é o arquivo main.js, através dos "import" no topo dele.
+     Só main.js precisa ser carregado aqui, os outros são
+     carregados automaticamente por causa dos imports.
+     ========================================================== -->
+<script type="module" src="js/main.js"></script>
+
+</body>
+</html>

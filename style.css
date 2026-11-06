@@ -1,0 +1,196 @@
+/* ==========================================================
+   ESTILO (CSS)
+   Aqui só cuidamos da aparência. Nada de lógica do programa
+   mora aqui — é puramente visual.
+   ========================================================== */
+
+:root {
+  /* Cores em variáveis, assim é fácil trocar o "tema" depois */
+  --bg: #0f172a;
+  --card-bg: #1e293b;
+  --accent: #38bdf8;
+  --accent-2: #a78bfa;
+  --text: #e2e8f0;
+  --text-dim: #94a3b8;
+  --true-color: #4ade80;
+  --false-color: #f87171;
+  --border: #334155;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(160deg, var(--bg), #1a1033);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 780px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitulo {
+  text-align: center;
+  color: var(--text-dim);
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.operadores {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.operadores span {
+  background: #0f172a;
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.operadores b { color: var(--accent); }
+
+.campo-formula {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+input#formulaInput {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0f172a;
+  color: var(--text);
+  font-size: 1.05rem;
+  font-family: "Courier New", monospace;
+}
+
+input#formulaInput:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #0f172a;
+  transition: transform 0.1s ease, opacity 0.2s ease;
+}
+
+button:hover { opacity: 0.9; }
+button:active { transform: scale(0.97); }
+
+.botoes-inserir {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.botoes-inserir button {
+  background: #0f172a;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  font-family: "Courier New", monospace;
+}
+
+.erro {
+  color: var(--false-color);
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid var(--false-color);
+  padding: 10px 14px;
+  border-radius: 10px;
+  margin-top: 14px;
+  font-size: 0.9rem;
+}
+
+.resultado-formula {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.classificacao {
+  text-align: center;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 10px;
+  margin-top: 14px;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+}
+
+.classificacao.tautologia { background: rgba(74, 222, 128, 0.15); color: var(--true-color); }
+.classificacao.contradicao { background: rgba(248, 113, 113, 0.15); color: var(--false-color); }
+.classificacao.contingencia { background: rgba(56, 189, 248, 0.15); color: var(--accent); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-family: "Courier New", monospace;
+}
+
+th, td {
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+th.coluna-final, td.coluna-final {
+  border-left: 2px solid var(--border);
+}
+
+td.valor-V { color: var(--true-color); font-weight: bold; }
+td.valor-F { color: var(--false-color); font-weight: bold; }
+
+footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.78rem;
+  margin-top: 20px;
+}
